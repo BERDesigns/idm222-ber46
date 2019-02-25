@@ -1,0 +1,293 @@
+html {
+  --main-bg-color: #ff3939;
+  --sec-bg-color: #ebebeb;
+
+  background-color: var(--main-bg-color);
+
+  font-family: "futura-pt" !important;
+  font-size: 100%;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--sec-bg-color);
+
+  transition: 0.3s ease-in-out;
+}
+
+a:hover {
+  opacity: 0.6 !important;
+}
+
+@font-face {
+   font-family: futura-xblk;
+   src: url(fonts/futura-xblk-bt.ttf);
+}
+
+.starting-div {
+  position: fixed;
+
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--main-bg-color);
+
+  animation: fade-out 1s ease-out 3.5s both;
+}
+
+.skip-splash {
+  position: fixed;
+
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--main-bg-color);
+
+  animation: fade-out 1s ease-out both;
+}
+
+#full-name-logo {
+  width: 40%;
+  transform: translateX(5%);
+  padding-right: 5%;
+  animation: focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s both;
+}
+
+#welcome-txt {
+  animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) 2.0s both;
+}
+
+#skip-btn-img {
+  position: absolute;
+  top: 2%;
+  right: 1%;
+  width: 3rem;
+
+  transition: 0.3s ease-in-out;
+  animation: focus-in 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+.grid {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+#main-grid {
+  width: 100vw;
+  height: 100vh;
+  grid-template: repeat(10, 10vh) / repeat(20, 5vw);
+  grid-template-areas:
+  "sidenav . . . . . . . . . . . . . . . . . . logo"
+  "sidenav . . . . . . . . . . . . . . . . . . ."
+  "sidenav . . . . . . . . . . . . . . . . . . ."
+  "sidenav . . . . . . . . . . . . . . . . . . ."
+  "sidenav . title-card title-card title-card title-card title-card title-card title-card title-card . . . . . . . . . ."
+  "sidenav . title-card title-card title-card title-card title-card title-card title-card title-card . . . . . . . . . ."
+  "sidenav . . . . . . . . . . . . . . . . . . ."
+  "sidenav . . . . . . . . . . . . . . . . . . ."
+  "sidenav . . . . . . . . . . . . . . . . . . ."
+  "sidenav . . . . . . . . . . . . . . . . . . .";
+}
+
+#logo {
+  grid-area: logo;
+  justify-self: start;
+}
+
+#bear-logo {
+  width: 5rem;
+}
+
+.main-txt {
+  font-family: "futura-xblk" !important;
+  font-size: 450%;
+  color: var(--sec-bg-color);
+}
+
+.landing-txt {
+  justify-self: start;
+}
+
+#title-card {
+  grid-area: title-card;
+}
+
+#explore-btn {
+  transition: 0.3s ease-in-out;
+}
+
+#explore-btn-txt {
+  transition: 0.3s ease-in-out;
+}
+
+#explore-btn:hover #explore-btn-pic {
+  animation: jello-horizontal 0.9s ease-in-out both;
+}
+
+.jello:hover {
+  animation: jello-horizontal 0.9s ease-in-out both;
+}
+
+#explore-btn-pic {
+  width: 2.25rem;
+}
+
+#sidenav {
+  background-color: var(--sec-bg-color);
+  grid-area: sidenav;
+  width: 100%;
+  height: 100%;
+
+  grid-template-rows: repeat(10, 10vh);
+  grid-template-areas:
+  "hamburger"
+  "."
+  "."
+  "."
+  "."
+  "."
+  "."
+  "."
+  "."
+  ".";
+}
+
+#hamburger {
+  grid-area: hamburger;
+}
+
+#hamburger-icon {
+  width: 3rem;
+}
+
+.menu {
+  position: fixed;
+  width: 0;
+  height: 100vh;
+
+  background-color: var(--sec-bg-color);
+}
+
+#main-menu {
+  z-index: -5;
+  grid-template: repeat(10, 10vh) / repeat(20, 5vw);
+  grid-template-areas:
+  "exit . . . . . . . . . . . . . . . . . . logo"
+  ". . . . . . . . . home home . . . . . . . . ."
+  ". . . . . . . . . . . . . . . . . . . ."
+  ". . . . . . . . . about about . . . . . . . . ."
+  ". . . . . . . . . . . . . . . . . . . ."
+  ". . . . . . . . . work work . . . . . . . . ."
+  ". . . . . . . . . . . . . . . . . . . ."
+  ". . . . . . . . . contact contact . . . . . . . . ."
+  ". . . . . . . . social social social social . . . . . . . ."
+  ". . . . . . . . . . . . . . . . . . . .";
+
+  transition: 0.5s ease-in-out;
+}
+
+#exit-btn {
+  grid-area: exit;
+}
+
+#exit-btn-img {
+  width: 3rem;
+}
+
+#logo-red {
+  grid-area: logo;
+  justify-self: start;
+}
+
+#bear-logo-red {
+  width: 5rem;
+}
+
+.menu-txt {
+  color: var(--main-bg-color);
+}
+
+#home {
+  grid-area: home;
+  align-self: center;
+}
+
+#about {
+  grid-area: about;
+  align-self: center;
+}
+
+#work {
+  grid-area: work;
+  align-self: center;
+}
+
+#contact {
+  grid-area: contact;
+  align-self: center;
+}
+
+#social-icons {
+  transform: translateZ(-800px) rotateY(90deg);
+
+  grid-area: social;
+  align-self: end;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+
+  width: 100%;
+  height: 50%;
+}
+
+.social-icon {
+  margin: 1rem;
+  width: 4rem;
+}
+
+.push-right {
+  animation: push-right 0.5s ease-in-out forwards;
+}
+
+.pop-left {
+  animation: pop-left 0.5s ease-in-out forwards;
+}
+
+.pop-menu-left {
+  animation: pop-menu-left 0.5s ease-in-out forwards;
+}
+
+.pop-menu-left-social {
+  animation: pop-menu-left-social 0.5s ease-in-out forwards !important;
+}
+
+.slit-in {
+  animation: slit-in-vertical 0.45s ease-out forwards;
+}
+
+.slit-out {
+  animation: slit-out-vertical 0.45s ease-out forwards;
+}
+
+.swirl-in {
+  animation: swirl-in 0.6s ease-out forwards;
+}
+
+.swirl-out {
+  animation: swirl-out 0.6s ease-out forwards;
+}
