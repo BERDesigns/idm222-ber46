@@ -1,5 +1,6 @@
-function skipSplash() {
+var projTop = [0, 100, 200, 300, 400];
 
+function skipSplash() {
   document.getElementById("splash").classList.add("skip-splash");
 }
 
@@ -45,7 +46,19 @@ function closeMainMenu() {
 }
 
 function revertExplore() {
+  projTop = [0, 100, 200, 300, 400];
+  document.getElementById("cur").innerHTML = "1";
   document.getElementById("ma-project").style.top = "100%";
+  document.getElementById("dp-project").style.top = "200%";
+  document.getElementById("cc-project").style.top = "300%";
+  document.getElementById("nw-project").style.top = "400%";
+  document.getElementById("abol-project").style.top = "500%";
+  var projScrollItems = document.getElementsByClassName("sidenav-proj-scroll");
+  for (var i = 0; i < projScrollItems.length; i++) {
+    projScrollItems[i].style.opacity = "1";
+    projScrollItems[i].classList.add("fade-out");
+    projScrollItems[i].classList.remove("fade-in");
+  }
   setTimeout(function(){
     let root = document.documentElement;
     root.style.setProperty("--main-bg-color", "#ff3939");
@@ -54,18 +67,96 @@ function revertExplore() {
       pics[i].style.filter = "";
     }
   }, 250);
+  setTimeout(function(){
+    for (var i = 0; i < projScrollItems.length; i++) {
+      projScrollItems[i].style.display = "none";
+    }
+  }, 10);
 }
 
 function explore() {
-  document.getElementById("ma-project").style.top = "0%";
+  pushProj(false, true);
+  var projScrollItems = document.getElementsByClassName("sidenav-proj-scroll");
+  for (var i = 0; i < projScrollItems.length; i++) {
+    projScrollItems[i].style.opacity = "0";
+    projScrollItems[i].style.display = "block";
+    projScrollItems[i].classList.remove("fade-out");
+    projScrollItems[i].classList.add("fade-in");
+  }
+}
+
+function pushProj(isUp, isFromExplore) {
+  var curProj = document.getElementById("cur");
+  var curNum = parseInt(curProj.innerHTML);
+  var closeAllProjs = false;
+  var hexStr = "";
+  var hueDegStr = "";
+  var brightStr = "";
+  var grayStr = "";
+  if (isUp == true && curNum == 1) {
+    revertExplore();
+    closeAllProjs = true;
+  }
+  else if (isUp == true) {
+    curNum -= 1;
+    for (var i = 0; i < projTop.length ; i++) {
+      projTop[i] = projTop[i]+100;
+    }
+  }
+  else if (isUp == false && curNum < 5 && isFromExplore == false) {
+    curNum += 1;
+    for (var i = 0; i < projTop.length ; i++) {
+      projTop[i] = projTop[i]-100;
+    }
+  }
+  console.log(projTop);
+  document.getElementById("ma-project").style.top = `${projTop[0]}%`;
+  document.getElementById("dp-project").style.top = `${projTop[1]}%`;
+  document.getElementById("cc-project").style.top = `${projTop[2]}%`;
+  document.getElementById("nw-project").style.top = `${projTop[3]}%`;
+  document.getElementById("abol-project").style.top = `${projTop[4]}%`;
+  if (curNum == 1) {
+    hexStr = "#cf0f58";
+    hueDegStr = "-25";
+    brightStr = "80";
+    grayStr = "0";
+  }
+  else if (curNum == 2) {
+    hexStr = "#9e9e9e";
+    hueDegStr = "-25";
+    brightStr = "150";
+    grayStr = "100";
+  }
+  else if (curNum == 3) {
+    hexStr = "#81368c";
+    hueDegStr = "-70";
+    brightStr = "70";
+    grayStr = "0";
+  }
+  else if (curNum == 4) {
+    hexStr = "#40d767";
+    hueDegStr = "100";
+    brightStr = "160";
+    grayStr = "0";
+  }
+  else {
+    hexStr = "#935f4b";
+    hueDegStr = "45";
+    brightStr = "80";
+    grayStr = "0";
+  }
   setTimeout(function(){
     let root = document.documentElement;
-    root.style.setProperty("--main-bg-color", "#cf0f58");
+    root.style.setProperty("--main-bg-color", hexStr);
     var pics = document.getElementsByClassName("red-img");
     for (var i = 0; i < pics.length; i++) {
-      pics[i].style.filter = "hue-rotate(-25deg) brightness(80%)";
+      pics[i].style.filter = `hue-rotate(${hueDegStr}deg) brightness(${brightStr}%) grayscale(${grayStr}%)`;
     }
   }, 250);
+  curProj.innerHTML = curNum;
+  if (isUp == true && curNum == 1 && closeAllProjs == true) {
+    revertExplore();
+  }
 }
 
 function popMenuLeft(linkEl) {
@@ -93,8 +184,6 @@ function popMenuLeft(linkEl) {
 }
 
 function undoMenuPop() {
-  //Returns all menu items to the center of the div when the menu is closed.
-  //Reminder to self: put these in a Promise for animationEnd.
   var menuItems = document.getElementsByClassName("menu-item");
   for (var i = 0; i < menuItems.length; i++) {
     menuItems[i].classList.remove("pop-menu-left");
@@ -186,4 +275,12 @@ document.getElementById("contact-frm-abt-link").addEventListener("click", functi
 
 document.getElementById("ma-link").addEventListener("click", function(){
   revertExplore();
+}, false);
+
+
+document.getElementById("proj-up").addEventListener("click", function(){
+  pushProj(true, false);
+}, false);
+document.getElementById("proj-down").addEventListener("click", function(){
+  pushProj(false, false);
 }, false);
