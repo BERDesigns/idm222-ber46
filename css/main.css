@@ -1,11 +1,19 @@
 html {
   --main-bg-color: #ff3939;
   --sec-bg-color: #ebebeb;
+  --ter-bg-color: #696969;
+
+  --ma-proj-bg-color: #cf0f58;
 
   background-color: var(--main-bg-color);
 
   font-family: "futura-pt" !important;
   font-size: 100%;
+
+  display: block;
+  overflow: hidden;
+
+  transition: 0.3s ease-in-out;
 }
 
 html, body {
@@ -34,6 +42,8 @@ a:hover {
 
   width: 100vw;
   height: 100vh;
+
+  z-index: 75;
 
   display: flex;
   align-items: center;
@@ -104,6 +114,7 @@ a:hover {
 }
 
 #logo {
+  z-index: 50;
   grid-area: logo;
   justify-self: start;
 }
@@ -197,6 +208,7 @@ a:hover {
   ". . . . . . . . social social social social . . . . . . . ."
   ". . . . . . . . . . . . . . . . . . . .";
 
+  opacity: 0;
   transition: 0.5s ease-in-out;
 }
 
@@ -219,6 +231,7 @@ a:hover {
 
 .menu-txt {
   color: var(--main-bg-color);
+  font-size: 400%;
 }
 
 #home {
@@ -260,6 +273,117 @@ a:hover {
   width: 4rem;
 }
 
+#vl {
+  position: fixed;
+  left: 30%;
+  height: 80vh;
+
+  border-radius: 20px;
+  border-width: thick;
+
+  border-style: solid;
+  border-color: var(--main-bg-color);
+
+  opacity: 0;
+}
+
+.abt-and-cnt-desc {
+  position: fixed;
+  left: 38%;
+  height: 80vh;
+  width: 65vw;
+
+  color: var(--main-bg-color);
+
+  font-size: 200%;
+
+  z-index: -5;
+  opacity: 0;
+}
+
+.abt-cnt-dsc-txt {
+  padding-right: 12vw;
+}
+
+.in-menu-title {
+  font-family: futura-xblk;
+  font-size: 200%;
+  margin-top: 0;
+}
+
+.dark-link {
+  color: var(--ter-bg-color);
+  cursor: pointer;
+}
+
+.input-field {
+  width: 80%;
+}
+
+#contact-form {
+  width: 80%;
+}
+
+.input-field {
+  font-family: "futura-pt";
+  font-size: 60%;
+
+  margin: 1%;
+  padding: 1% 2.5%;
+  background-color: rgba(0, 0, 0, 0);
+
+  border: 8px solid var(--main-bg-color);
+  border-radius: 50px;
+}
+
+#input-message {
+  height: 20vh;
+  margin-bottom: 3%;
+  resize: none;
+}
+
+#submit-button {
+  font-family: futura-xblk;
+  font-size: 80%;
+
+  background-color: var(--main-bg-color);
+  color: var(--sec-bg-color);
+
+  padding: 1vh 1vw;
+  border-radius: 30px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease-in-out;
+}
+
+#submit-button:hover {
+  opacity: 0.6;
+}
+
+#ma-project {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 95vw;
+  height: 100vh;
+  z-index: 10;
+
+  top: 100vh;
+  right: 0%;
+
+  background-color: var(--ma-proj-bg-color);
+
+  transition: 0.5s ease-in-out;
+}
+
+#ma-link {
+  width: 50rem;
+  filter: drop-shadow(0px 12px 12px rgba(0,0,0,0.5));
+}
+
 .push-right {
   animation: push-right 0.5s ease-in-out forwards;
 }
@@ -282,6 +406,14 @@ a:hover {
 
 .slit-out {
   animation: slit-out-vertical 0.45s ease-out forwards;
+}
+
+.fade-in {
+  animation: fade-in 0.75s ease 0.5s forwards;
+}
+
+.fade-out {
+  animation: fade-out-alt 0.75s ease 0.5s forwards;
 }
 
 .swirl-in {

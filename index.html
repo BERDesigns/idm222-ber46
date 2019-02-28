@@ -18,8 +18,8 @@
     </div>
     <div class="grid menu" id="main-menu">
       <a class="jello" id="exit-btn" href="#"><img id="exit-btn-img" class="red-img" src="img/exit.svg" alt="Menu Exit Button"></a>
-      <a class="jello" id="logo-red" href="index.html"><img id="bear-logo-red" class="red-img" src="img/logo/bear_red.svg" alt="Bear Logo"></a>
-      <a class="menu-item" href="index.html" id="home"><p class="main-txt menu-txt">HOME</p></a>
+      <a class="jello" id="logo-red" href="#"><img id="bear-logo-red" class="red-img" src="img/logo/bear_red.svg" alt="Bear Logo"></a>
+      <a class="menu-item" href="#" id="home"><p class="main-txt menu-txt">HOME</p></a>
       <a class="menu-item" href="#" id="about"><p class="main-txt menu-txt">ABOUT</p></a>
       <a class="menu-item" href="#" id="work"><p class="main-txt menu-txt">WORKS</p></a>
       <a class="menu-item" href="#" id="contact"><p class="main-txt menu-txt" >CONTACT</p></a>
@@ -28,16 +28,36 @@
         <a class="menu-item-social jello" id="linkedin" href="https://www.linkedin.com/in/beckrivera/" target="_blank"><img class="social-icon red-img" id="linkedin-icon" src="img/socialicons/linkedin.svg" alt="LinkedIn Icon"></a>
         <a class="menu-item-social jello" id="gmail" href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=riverabecke@gmail.com" target="_blank"><img class="social-icon red-img" id="gmail-icon" src="img/socialicons/gmail.svg" alt="Gmail Icon"></a>
       </div>
+      <div id="vl"></div>
+      <div class="abt-and-cnt-desc" id="about-desc">
+        <p class="abt-cnt-dsc-txt in-menu-title">ABOUT</p>
+        <p class="abt-cnt-dsc-txt">Hi. My name is Beck Rivera. I'm a Philadelphia-based independent User Interface and User Experience Designer. I specialize in designing custom interactive experiences for clientele. Together, let's make something amazing!</p>
+        <p class="abt-cnt-dsc-txt">My services include Logo Design, Brand Design, Website / User Interface Design, and User Experience Design. If you would like to request a copy of my resume, or have any questions regarding my services, feel free to contact me through the <a id="contact-frm-abt-link" class="dark-link"><b>Contact</b></a> page.</p>
+      </div>
+      <div class="abt-and-cnt-desc" id="contact-desc">
+        <p class="abt-cnt-dsc-txt in-menu-title">CONTACT</p>
+        <form id="contact-form" action="index.html" method="post">
+          <input id="input-name" class="input-field" type="text" placeholder="NAME" required>
+          <input id="input-phone" class="input-field" type="number" placeholder="PHONE (OPTIONAL)">
+          <input id="input-email" class="input-field" type="email" placeholder="EMAIL" required>
+          <textarea id="input-message" class="input-field" placeholder="MESSAGE" required></textarea>
+          <br />
+          <input id="submit-button" type="submit" value="SUBMIT">
+        </form>
+      </div>
     </div>
     <div class="grid" id="main-grid">
       <div class="grid" id="sidenav">
         <a class="jello" id="hamburger" href="#"><img id="hamburger-icon" class="red-img" src="img/hamburger.svg" alt="Hamburger Icon"></a>
       </div>
-      <a class="jello" id="logo" href="index.html"><img id="bear-logo" src="img/logo/bear_white.svg" alt="Bear Logo"></a>
+      <a class="jello" id="logo" href="#"><img id="bear-logo" src="img/logo/bear_white.svg" alt="Bear Logo"></a>
       <p class="main-txt landing-txt" id="title-card">THE<br /><span id="ber">BER</span><br />DESIGNS<br /><br />
         <a id="explore-btn" href="#"><span id="explore-btn-txt">EXPLORE</span>
         <img id="explore-btn-pic" src="img/thick_arrow.svg" alt="Explore Button"></a>
       </p>
+    </div>
+    <div id="ma-project">
+      <a id="ma-link" href="https://the-gazelle.itch.io/material-affection" target="_blank"><img id="ma-logo" src="img/projlogos/ma.svg" alt="Material Affection Logo"></a>
     </div>
     <script src = "js/main.js"></script>
   </body>
