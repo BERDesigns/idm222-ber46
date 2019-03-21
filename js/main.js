@@ -1,4 +1,11 @@
 var projTop = [0, 100, 200, 300, 400];
+var projTopTablet = [10, 110, 210, 310, 410];
+var tabletWatch = window.matchMedia("screen and (max-aspect-ratio: 1/1)");
+var phoneWatch = window.matchMedia("screen and (max-aspect-ratio: 2/1)");
+
+if (tabletWatch.matches) {
+  document.getElementById("bear-logo").src = "img/logo/bear_red.svg";
+}
 
 function skipSplash() {
   document.getElementById("splash").classList.add("skip-splash");
@@ -9,8 +16,14 @@ function openMainMenu() {
   setTimeout(function(){
     document.getElementById("main-menu").style.opacity = "1";
   }, 10);
-  document.getElementById("main-menu").classList.add("push-right");
-  document.getElementById("main-menu").classList.remove("pop-left");
+  if (tabletWatch.matches) {
+    document.getElementById("main-menu").classList.add("push-down");
+    document.getElementById("main-menu").classList.remove("pop-up");
+  }
+  else {
+    document.getElementById("main-menu").classList.add("push-right");
+    document.getElementById("main-menu").classList.remove("pop-left");
+  }
   var menuItems = document.getElementsByClassName("menu-item");
   for(var i = 0; i < menuItems.length; i++) {
     menuItems[i].classList.add("slit-in");
@@ -27,8 +40,15 @@ function openMainMenu() {
 function closeMainMenu() {
   undoMenuPop();
   document.getElementById("vl").classList.remove("fade-in");
-  document.getElementById("main-menu").classList.add("pop-left");
-  document.getElementById("main-menu").classList.remove("push-right");
+  if (tabletWatch.matches) {
+    document.getElementById("main-menu").classList.add("pop-up");
+    document.getElementById("main-menu").classList.remove("push-down");
+    console.log("this shit works!");
+  }
+  else {
+    document.getElementById("main-menu").classList.add("pop-left");
+    document.getElementById("main-menu").classList.remove("push-right");
+  }
   var menuItems = document.getElementsByClassName("menu-item");
   for(var i = 0; i < menuItems.length; i++) {
     menuItems[i].classList.add("slit-out");
@@ -47,6 +67,7 @@ function closeMainMenu() {
 
 function revertExplore() {
   projTop = [0, 100, 200, 300, 400];
+  projTopTablet = [10, 110, 210, 310, 410];
   document.getElementById("cur").innerHTML = "1";
   document.getElementById("ma-project").style.top = "100%";
   document.getElementById("dp-project").style.top = "200%";
@@ -101,20 +122,31 @@ function pushProj(isUp, isFromExplore) {
     curNum -= 1;
     for (var i = 0; i < projTop.length ; i++) {
       projTop[i] = projTop[i]+100;
+      projTopTablet[i] = projTopTablet[i]+100;
     }
   }
   else if (isUp == false && curNum < 5 && isFromExplore == false) {
     curNum += 1;
     for (var i = 0; i < projTop.length ; i++) {
       projTop[i] = projTop[i]-100;
+      projTopTablet[i] = projTopTablet[i]-100;
     }
   }
   console.log(projTop);
-  document.getElementById("ma-project").style.top = `${projTop[0]}%`;
-  document.getElementById("dp-project").style.top = `${projTop[1]}%`;
-  document.getElementById("cc-project").style.top = `${projTop[2]}%`;
-  document.getElementById("nw-project").style.top = `${projTop[3]}%`;
-  document.getElementById("abol-project").style.top = `${projTop[4]}%`;
+  if(tabletWatch.matches) {
+    document.getElementById("ma-project").style.top = `${projTopTablet[0]}%`;
+    document.getElementById("dp-project").style.top = `${projTopTablet[1]}%`;
+    document.getElementById("cc-project").style.top = `${projTopTablet[2]}%`;
+    document.getElementById("nw-project").style.top = `${projTopTablet[3]}%`;
+    document.getElementById("abol-project").style.top = `${projTopTablet[4]}%`;
+  }
+  else {
+    document.getElementById("ma-project").style.top = `${projTop[0]}%`;
+    document.getElementById("dp-project").style.top = `${projTop[1]}%`;
+    document.getElementById("cc-project").style.top = `${projTop[2]}%`;
+    document.getElementById("nw-project").style.top = `${projTop[3]}%`;
+    document.getElementById("abol-project").style.top = `${projTop[4]}%`;
+  }
   if (curNum == 1) {
     hexStr = "#cf0f58";
     hueDegStr = "-25";
@@ -122,7 +154,7 @@ function pushProj(isUp, isFromExplore) {
     grayStr = "0";
   }
   else if (curNum == 2) {
-    hexStr = "#9e9e9e";
+    hexStr = "#8b8b8b";
     hueDegStr = "-25";
     brightStr = "150";
     grayStr = "100";
@@ -134,16 +166,16 @@ function pushProj(isUp, isFromExplore) {
     grayStr = "0";
   }
   else if (curNum == 4) {
-    hexStr = "#40d767";
-    hueDegStr = "100";
-    brightStr = "160";
+    hexStr = "#0083ab";
+    hueDegStr = "200";
+    brightStr = "105";
     grayStr = "0";
   }
   else {
-    hexStr = "#935f4b";
-    hueDegStr = "45";
-    brightStr = "80";
-    grayStr = "0";
+    hexStr = "#864a42";
+    hueDegStr = "30";
+    brightStr = "65";
+    grayStr = "30";
   }
   setTimeout(function(){
     let root = document.documentElement;
@@ -217,7 +249,7 @@ function animatedText(target, texts, changeInterval, updateInterval, onTextChang
       onTextChanged();
     }
     target.innerHTML=areaText.length==0?"&nbsp;":areaText;
-  }.bind(this),updateInterval?updateInterval:50);
+  }.bind(this),updateInterval?updateInterval:25);
   this.t2=setInterval(function(){
     currentText=parseInt(Math.random()*texts.length);
   }.bind(this),changeInterval?changeInterval:4000);
@@ -230,7 +262,7 @@ animatedText.prototype={
 setTimeout(function(){
   new animatedText(document.getElementById("ber"),
     ["BER", "BEST", "COOLEST", "NEWEST", "LATEST", "SHARPEST", "SLICKEST", "SMOOTHEST", "PUREST"])
-    ;}, 8000);
+    ;}, 12000);
 
 document.getElementById("skip-btn").addEventListener("click", skipSplash, false);
 
@@ -242,6 +274,10 @@ document.getElementById("twitter").addEventListener("click", closeMainMenu, fals
 document.getElementById("linkedin").addEventListener("click", closeMainMenu, false);
 document.getElementById("gmail").addEventListener("click", closeMainMenu, false);
 
+document.getElementById("mobile-logo").addEventListener("click", function(){
+  closeMainMenu();
+  revertExplore();
+}, false);
 document.getElementById("logo").addEventListener("click", function(){
   closeMainMenu();
   revertExplore();
@@ -276,7 +312,18 @@ document.getElementById("contact-frm-abt-link").addEventListener("click", functi
 document.getElementById("ma-link").addEventListener("click", function(){
   revertExplore();
 }, false);
-
+document.getElementById("dp-link").addEventListener("click", function(){
+  revertExplore();
+}, false);
+document.getElementById("cc-link").addEventListener("click", function(){
+  revertExplore();
+}, false);
+document.getElementById("nw-link").addEventListener("click", function(){
+  revertExplore();
+}, false);
+document.getElementById("abol-link").addEventListener("click", function(){
+  revertExplore();
+}, false);
 
 document.getElementById("proj-up").addEventListener("click", function(){
   pushProj(true, false);

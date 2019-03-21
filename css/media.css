@@ -1,0 +1,84 @@
+@media screen and (max-aspect-ratio: 1/1) {
+  #splash {
+    z-index: 500;
+  }
+
+  #skip-btn-img {
+    right: 2%;
+  }
+
+  #main-grid {
+    grid-template-areas:
+    "sidenav sidenav sidenav sidenav sidenav sidenav sidenav sidenav sidenav sidenav sidenav sidenav sidenav sidenav sidenav sidenav sidenav sidenav sidenav sidenav"
+    ". . . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . . ."
+    ". . title-card title-card title-card title-card title-card title-card title-card title-card title-card title-card title-card title-card . . . . . ."
+    ". . title-card title-card title-card title-card title-card title-card title-card title-card title-card title-card title-card title-card . . . . . ."
+    ". . . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . . .";
+  }
+
+  #sidenav {
+    z-index: 200;
+
+    grid-template-columns: repeat(10, 10%);
+    grid-template-rows: 10vh;
+    grid-template-areas:
+    "proj-up cur last proj-down mobile-logo mobile-logo . . . hamburger";
+  }
+
+  #main-menu {
+    grid-template-areas:
+    ". . . . . . . . . logo logo . . . . . . . exit exit"
+    ". . . . . . . . . home home . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . about about . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . work work . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . contact contact . . . . . . . . ."
+    ". . . . . . social social social social social social social social . . . . . ."
+    ". . . . . . . . . . . . . . . . . . . .";
+
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+  }
+
+  #mobile-logo {
+    z-index: 50;
+    grid-area: mobile-logo;
+  }
+
+  #bear-logo-mobile {
+    width: 5rem;
+  }
+
+  .menu {
+    width: 100vw;
+    height: 0;
+  }
+
+  .project-display {
+    width: 100vw;
+    height: 90vh;
+    z-index: 10;
+    right: 0%;
+
+    transition: 0.5s ease-in-out;
+  }
+
+  .proj-logo-link {
+    width: 30rem;
+  }
+
+  .push-down {
+    animation: push-down 0.5s ease-in-out forwards;
+  }
+
+  .pop-up {
+    animation: pop-up 0.5s ease-in-out forwards;
+  }
+}

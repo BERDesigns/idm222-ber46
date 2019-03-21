@@ -4,10 +4,10 @@ html {
   --ter-bg-color: #696969;
 
   --ma-proj-bg-color: #cf0f58;
-  --dp-proj-bg-color: #9e9e9e;
+  --dp-proj-bg-color: #8b8b8b;
   --cc-proj-bg-color: #81368c;
-  --nw-proj-bg-color: #40d767;
-  --abol-proj-bg-color: #935f4b;
+  --nw-proj-bg-color: #0083ab;
+  --abol-proj-bg-color: #864a42;
 
   background-color: var(--main-bg-color);
 
@@ -33,6 +33,14 @@ a {
 }
 
 a:hover {
+  opacity: 0.6;
+}
+
+.proj-arrow {
+  transition: 0.3s ease-in-out !important;
+}
+
+.proj-arrow:hover {
   opacity: 0.6 !important;
 }
 
@@ -390,6 +398,10 @@ a:hover {
   resize: none;
 }
 
+textarea:required {
+    box-shadow:none;
+}
+
 #submit-button {
   font-family: futura-xblk;
   font-size: 80%;
@@ -398,6 +410,7 @@ a:hover {
   color: var(--sec-bg-color);
 
   padding: 1vh 1vw;
+  border: 0;
   border-radius: 30px;
 
   cursor: pointer;
@@ -429,8 +442,11 @@ a:hover {
   background-color: var(--ma-proj-bg-color);
 }
 
-#ma-link {
+.proj-logo-link {
   width: 50rem;
+}
+
+#ma-link {
   filter: drop-shadow(0px 12px 12px rgba(0,0,0,0.5));
 }
 
@@ -441,7 +457,6 @@ a:hover {
 }
 
 #dp-link {
-  width: 50rem;
   filter: drop-shadow(0px 12px 12px rgba(0,0,0,0.5));
 }
 
@@ -452,7 +467,6 @@ a:hover {
 }
 
 #cc-link {
-  width: 50rem;
   filter: drop-shadow(0px 12px 12px rgba(0,0,0,0.5));
 }
 
@@ -463,7 +477,6 @@ a:hover {
 }
 
 #nw-link {
-  width: 50rem;
   filter: drop-shadow(0px 12px 12px rgba(0,0,0,0.5));
 }
 
@@ -474,8 +487,22 @@ a:hover {
 }
 
 #abol-link {
-  width: 45rem;
   filter: drop-shadow(0px 12px 12px rgba(0,0,0,0.5));
+}
+
+.overflow-helper {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  padding: 0;
+  margin: 0;
+
+  position: absolute;
+  overflow: hidden;
+
+  z-index: -100;
 }
 
 .push-right {
