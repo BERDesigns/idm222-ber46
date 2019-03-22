@@ -7,6 +7,7 @@ var phoneWatch = window.matchMedia("screen and (max-aspect-ratio: 2/1)");
 // Changing out picutres depending on if the user is on a Tablet / Mobile.
 if (tabletWatch.matches) {
   document.getElementById("bear-logo").src = "img/logo/bear_red.svg";
+  document.getElementById("end").innerHTML = "5";
 }
 
 // Function: Skip the splash screen.
