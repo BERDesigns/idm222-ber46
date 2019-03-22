@@ -49,6 +49,14 @@ a:hover {
    src: url(fonts/futura-xblk-bt.ttf);
 }
 
+/*
+
+    ====================
+    SPLASH SCREEN STYLES
+    ====================
+
+*/
+
 .starting-div {
   position: fixed;
 
@@ -101,6 +109,14 @@ a:hover {
   transition: 0.3s ease-in-out;
   animation: focus-in 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
+
+/*
+
+    =============
+    MAIN DIV GRID
+    =============
+
+*/
 
 .grid {
   display: grid;
@@ -168,6 +184,14 @@ a:hover {
 #explore-btn-pic {
   width: 2.25rem;
 }
+
+/*
+
+    ================
+    SIDENAV DIV GRID
+    ================
+
+*/
 
 #sidenav {
   background-color: var(--sec-bg-color);
@@ -240,6 +264,14 @@ a:hover {
   border: 0.2rem solid var(--main-bg-color);
   border-radius: 30px;
 }
+
+/*
+
+    ==================
+    POP-UP MENU STYLES
+    ==================
+
+*/
 
 .menu {
   position: fixed;
@@ -329,8 +361,17 @@ a:hover {
   width: 4rem;
 }
 
+/*
+
+    =====================
+    POP-UP MENU'S POP-UPS
+    =====================
+
+*/
+
 #vl {
   position: fixed;
+  top: 10%;
   left: 30%;
   height: 80vh;
 
@@ -345,6 +386,7 @@ a:hover {
 
 .abt-and-cnt-desc {
   position: fixed;
+  top: 10%;
   left: 38%;
   height: 80vh;
   width: 65vw;
@@ -422,6 +464,14 @@ textarea:required {
   opacity: 0.6;
 }
 
+/*
+
+    ==================
+    PROJECT DIV STYLES
+    ==================
+
+*/
+
 .project-display {
   position: absolute;
   display: flex;
@@ -490,6 +540,14 @@ textarea:required {
   filter: drop-shadow(0px 12px 12px rgba(0,0,0,0.5));
 }
 
+/*
+
+    ==============
+    SITE CONTAINER
+    ==============
+
+*/
+
 .overflow-helper {
   top: 0;
   left: 0;
@@ -504,6 +562,14 @@ textarea:required {
 
   z-index: -100;
 }
+
+/*
+
+    ==========
+    ANIMATIONS
+    ==========
+
+*/
 
 .push-right {
   animation: push-right 0.5s ease-in-out forwards;
